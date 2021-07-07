@@ -1,18 +1,16 @@
 if __name__ == '__main__':
-    s = input()
+    N = int(input())
+    n_nums = [int(n) for n in input().split(" ")]
+    M = int(input())
+    m_nums = [int(m) for m in input().split(" ")]
 
-    stack = []
-    result = ""
-    for c in s:
-        if c == "(":
-            stack.append(c)
-        elif c == ")":
-            while stack[-1] != "(":
-                del stack[-1]
-            del stack[-1]
-        elif len(stack) == 0:
-            result += c
-        else:
-            stack.append(c)
+    long_nums = sorted(n_nums if N >= M else m_nums)
+    short_nums = n_nums if N < M else m_nums
+
+    result = []
+    for i in range(len(long_nums)):
+        if long_nums[i] in short_nums:
+            result.append(long_nums[i])
+
 
     print(result)

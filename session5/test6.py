@@ -1,25 +1,13 @@
 if __name__ == '__main__':
-    board = eval(input())
-    moves = eval(input())
+    num = int(input())
 
-    print(board)
-    print(moves)
+    s = input()
 
-    stack = []
-    count = 0
-    for move in moves:
-        for i in range(len(board)):
-            print("move:", move)
-            print("i:", i)
-            print("value:", board[i][move-1])
-            if board[i][move-1] != 0:
-                stack.append(board[i][move-1])
-                board[i][move - 1] = 0
-                break
-        print(stack)
-        if len(stack) > 1 and stack[-1] == stack[-2]:
-            del stack[-1]
-            del stack[-1]
-            count += 1
+    t = {}
+    for c in s:
+        if t.get(c):
+            t[c] += 1
+        else:
+            t[c] = 1
 
-    print(count * 2)
+    print(sorted(t.items(), key=lambda x: -x[1])[0][0])
