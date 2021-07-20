@@ -1,6 +1,7 @@
 def get_num(m, c):
     if len(c) <= 0:
         return m
+
     result = []
 
     for c_pos in c:
